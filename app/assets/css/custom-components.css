@@ -1,0 +1,14 @@
+@layer components {
+  /* BUTTONS */
+  .button-primary {
+    @apply transition-colors duration-300 ease-in-out rounded-full inline-block px-6 py-2 uppercase font-bold w-max text-xs md:text-sm lg:text-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 !no-underline;
+
+    &-red {
+      @apply bg-red text-white font-bold hover:bg-yellow group-hover:bg-yellow focus-visible:outline-yellow;
+    }
+
+    &-small {
+      @apply text-xs sm:text-xs md:text-sm lg:text-sm px-4 py-2;
+    }
+  }
+}
