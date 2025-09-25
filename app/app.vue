@@ -1,6 +1,16 @@
 <template>
   <div class="flex flex-col relative min-h-screen">
-    <NuxtPage />
+    <div class="sticky top-0 left-0 z-40 print:hidden">
+      <div class="main-container flex items-center gap-8 h-16">
+        <NuxtLink to="/" class="no-underline text-black font-extralight">
+          Beranda
+        </NuxtLink>
+        <NuxtLink to="/#katalog" class="no-underline text-black font-extralight">
+          Katalog
+        </NuxtLink>
+      </div>
+    </div>
+    <NuxtPage class="grow"/>
   </div>
 </template>
 <script lang="ts" setup>

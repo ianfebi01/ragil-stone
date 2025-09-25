@@ -1,10 +1,10 @@
 /** @type {import("tailwindcss").Config} */
 module.exports = {
   content: [
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
+    "@/components/**/*.{js,vue,ts}",
+    "@/layouts/**/*.vue",
+    "@/pages/**/*.vue",
+    "@/plugins/**/*.{js,ts}",
     "./nuxt.config.{js,ts}",
   ],
   theme: {
@@ -22,16 +22,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary : "#A70B20",
-        red     : "#EF373E",
-        maroon  : "#540026",
-        white   : "#FFFFFF",
-        grey    : "#BEB7B3",
-        yellow  : "#E59818",
-        purple  : "#6E0F6C",
-        pink    : "#D987D3",
-        dust    : "#EFEFEF",
-        black   : "#2E2E2F",
+        black: "#2E2E2F",
       },
       lineHeight: {
         normal: "1.1",
@@ -39,6 +30,7 @@ module.exports = {
     },
     fontFamily: {
       primary: [
+        "Montserrat",
         "Inter",
         "Arial",
         "-apple-system",

@@ -13,6 +13,7 @@ export default defineNuxtConfig( {
     "@nuxtjs/tailwindcss",
     "@nuxtjs/sitemap",
     "@nuxtjs/robots",
+    "@nuxt/icon",
   ],
   eslint: {
     checker: true,
