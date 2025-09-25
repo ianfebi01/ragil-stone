@@ -31,7 +31,7 @@ module.exports = {
         purple  : "#6E0F6C",
         pink    : "#D987D3",
         dust    : "#EFEFEF",
-        black   : "#000000",
+        black   : "#2E2E2F",
       },
       lineHeight: {
         normal: "1.1",
