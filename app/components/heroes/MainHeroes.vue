@@ -87,7 +87,7 @@ onMounted( () => {
 
         if ( headingRef.value ) {
             tl.to( headingRef.value, {
-                duration : 4,
+                duration : 2,
                 text     : "Ragil Stone menyediakan jasa pemasangan profesional dan bahan batu alam terbaik langsung dari Gunungkidul.", // your text
                 ease     : "none",
             } )

@@ -1,17 +1,7 @@
 <template>
   <div>
     <HeroesMainHeroes />
-    <section class="bg-gray-100">
-      <div class="main-container p-20">
-        <div class=" max-w-2xl mx-auto">
-          <blockquote cite="https://www.example.com/artikel" class="text-3xl text-center">
-            <Icon name="fa7-solid:quote-left" />
-            Misi kami adalah menghadirkan keindahan alami ke dalam rumah, taman, dan bangunan Anda.
-            <Icon name="fa7-solid:quote-right" />
-          </blockquote>
-        </div>
-      </div>
-    </section>
+    <SectionsQuote/>
     <section>
       <div class="main-container p-20">
         <h2 class="h1 mt-0 text-center mb-12">Tentang Kami</h2>
