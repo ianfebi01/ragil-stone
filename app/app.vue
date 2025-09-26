@@ -16,6 +16,9 @@
       </div>
     </div>
     <NuxtPage class="grow"/>
+    <footer class="main-container py-8 shadow-sm text-center md:text-left">
+      © 2025 Ragil Stone | Batu Alam & Pemasangan – Gunungkidul, Yogyakarta
+    </footer>
   </div>
 </template>
 <script lang="ts" setup>
