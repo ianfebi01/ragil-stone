@@ -8,6 +8,11 @@
         <NuxtLink to="/#katalog" class="no-underline text-black font-extralight" @click="scrollToSection('katalog')">
           Katalog
         </NuxtLink>
+        <div class="grow"></div>
+        <NuxtLink :to="`https://wa.me/6281999980596`" class="button button-primary">
+          <Icon name="fa7-solid:paper-plane" />
+          Kontak
+        </NuxtLink>
       </div>
     </div>
     <NuxtPage class="grow"/>
