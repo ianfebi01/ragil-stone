@@ -6,7 +6,7 @@
         <div
           v-for="(item, index) in catalogs"
           :key="index"
-          class="aspect-square w-full overflow-hidden"
+          class="aspect-square w-full overflow-hidden rounded-xl"
           @click="onClickImage(item)">
           <img
             :src="item"
