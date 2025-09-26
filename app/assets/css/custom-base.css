@@ -41,7 +41,7 @@
 
     p,
     .p {
-        @apply text-xs xl:text-sm 2xl:text-base font-normal my-4;
+        @apply text-sm xl:text-sm 2xl:text-base font-normal my-4;
 
         &:last-child {
             @apply mb-0;
