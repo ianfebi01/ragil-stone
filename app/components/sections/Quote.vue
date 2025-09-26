@@ -16,16 +16,21 @@
 </template>
 
 <script setup lang="ts">
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-gsap.registerPlugin( ScrollTrigger )
-
 const containerRef = ref<HTMLElement | null>( null )
 const textRef = ref<( HTMLElement | null )>( null )
 let ctx: gsap.Context | null = null
 
-onMounted( () => {
+onMounted( async () => {
+    if ( !import.meta.client ) return
+
+    // Lazy import GSAP & plugins only in browser
+    const gsap = ( await import( "gsap" ) ).default
+    const { ScrollTrigger } = await import( "gsap/ScrollTrigger" )
+
+    gsap.registerPlugin( ScrollTrigger )
+
+    if ( !containerRef.value ) return
+
     ctx = gsap.context( () => {
         const tl = gsap.timeline( {
             scrollTrigger: {

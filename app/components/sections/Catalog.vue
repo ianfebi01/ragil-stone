@@ -7,7 +7,7 @@
           v-for="(item, index) in catalogs.slice(0, 3)"
           :key="index"
           :ref="el => itemsRef[index] = (el as HTMLDivElement)"
-          class="aspect-square w-full overflow-hidden rounded-xl opacity-0 translate-y-8"
+          class="aspect-square w-full overflow-hidden rounded-xl opacity-0 translate-y-8 cursor-pointer"
           @click="onClickImage(item)">
           <img
             :src="item"
@@ -33,7 +33,7 @@
                   <div
                     v-for="(item, index) in catalogs.slice(3, catalogs.length)"
                     :key="index"
-                    class="aspect-square w-full overflow-hidden rounded-xl"
+                    class="aspect-square w-full overflow-hidden rounded-xl cursor-pointer"
                     @click="onClickImage(item)">
                     <img
                       :src="item"
@@ -66,20 +66,25 @@
 
 <script lang="ts" setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
 /**
  * Transition
  */
-gsap.registerPlugin( ScrollTrigger )
 
 const itemsRef = ref<HTMLDivElement[] | null[]>( [] )
 const componentRef = ref<HTMLElement>()
 let ctx: gsap.Context | null = null
 
 
-onMounted( () => {
+onMounted( async () => {
+        if ( !import.meta.client ) return
+
+    // Lazy import GSAP & plugins only in browser
+    const gsap = ( await import( "gsap" ) ).default
+    const { ScrollTrigger } = await import( "gsap/ScrollTrigger" )
+
+    gsap.registerPlugin( ScrollTrigger )
+
+    if ( !componentRef.value ) return
     ctx = gsap.context( () => {
         const tl = gsap.timeline( {
             scrollTrigger: {

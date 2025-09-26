@@ -1,5 +1,5 @@
 <template>
-  <section class="relative md:h-[calc(100vh-64px)] overflow-hidden">
+  <section ref="containerRef" class="relative md:h-[calc(100vh-64px)] overflow-hidden">
     <div class="h-full main-container flex flex-col md:flex-row md:items-center gap-8 py-16 md:py-20">
       <div ref="textRef" class="flex flex-col max-w-2xl opacity-0 translate-y-8">
         <div class="flex flex-col justify-center grow">
@@ -41,22 +41,23 @@
 </template>
 
 <script setup lang="ts">
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { TextPlugin } from "gsap/TextPlugin"
-
-
-gsap.registerPlugin( ScrollTrigger )
-gsap.registerPlugin( TextPlugin )
-
-
 const containerRef = ref<HTMLElement | null>( null )
 const imageRef = ref<( HTMLElement | null )>( null )
 const textRef = ref<( HTMLElement | null )>( null )
 const headingRef = ref<HTMLElement | null>( null )
 let ctx: gsap.Context | null = null
 
-onMounted( () => {
+onMounted( async () => {
+    if ( !import.meta.client ) return
+
+    // Lazy import GSAP & plugins only in browser
+    const gsap = ( await import( "gsap" ) ).default
+    const { ScrollTrigger } = await import( "gsap/ScrollTrigger" )
+    const { TextPlugin } = await import( "gsap/TextPlugin" )
+
+    gsap.registerPlugin( ScrollTrigger, TextPlugin )
+
+    if ( !containerRef.value ) return
     ctx = gsap.context( () => {
         const tl = gsap.timeline( {
             scrollTrigger: {
