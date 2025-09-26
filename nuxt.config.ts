@@ -4,8 +4,11 @@ export default defineNuxtConfig( {
   devtools          : { enabled: true },
   runtimeConfig     : {
     public: {
-      siteName : process.env.NUXT_SITE_NAME,
-      siteUrl  : process.env.NUXT_SITE_URL,
+      siteName: process.env.NUXT_SITE_NAME,
+      siteUrl:
+        process.env.VERCEL_ENV === "production"
+          ? `https://${process.env.NUXT_SITE_URL}` // custom domain in prod
+          : `https://${process.env.VERCEL_URL}`,
     },
   },
   modules: [
@@ -32,7 +35,10 @@ export default defineNuxtConfig( {
     },
   },
   site: {
-    url       : process.env.NUXT_SITE_URL,
+    url:
+      process.env.VERCEL_ENV === "production"
+        ? `https://${process.env.NUXT_SITE_URL}`
+        : `https://${process.env.VERCEL_URL}`,
     name      : process.env.NUXT_SITE_NAME,
     indexable : process.env.NODE_ENV === "production",
   },
