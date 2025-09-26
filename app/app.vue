@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col relative min-h-screen">
-    <div class="sticky top-0 left-0 z-40 print:hidden">
+    <div class="sticky top-0 left-0 z-40 print:hidden bg-white shadow-sm">
       <div class="main-container flex items-center gap-8 h-16">
         <NuxtLink to="/" class="no-underline text-black font-extralight">
           Beranda
         </NuxtLink>
-        <NuxtLink to="/#katalog" class="no-underline text-black font-extralight">
+        <NuxtLink to="/#katalog" class="no-underline text-black font-extralight" @click="scrollToSection('katalog')">
           Katalog
         </NuxtLink>
       </div>
@@ -14,6 +14,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import scrollToSection from "~~/shared/utils/scrollToSection"
 const config = useRuntimeConfig()
 const siteName = config.public.siteName
 const title = siteName || "Ragil Stone | Jasa Pemasangan Batu Alam"
