@@ -6,7 +6,8 @@
         <div
           v-for="(item, index) in catalogs.slice(0, 3)"
           :key="index"
-          class="aspect-square w-full overflow-hidden rounded-xl"
+          :ref="el => itemsRef[index] = (el as HTMLDivElement)"
+          class="aspect-square w-full overflow-hidden rounded-xl opacity-0 translate-y-8"
           @click="onClickImage(item)">
           <img
             :src="item"
@@ -65,11 +66,51 @@
 
 <script lang="ts" setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+/**
+ * Transition
+ */
+gsap.registerPlugin( ScrollTrigger )
+
+const itemsRef = ref<HTMLDivElement[] | null[]>( [] )
+const componentRef = ref<HTMLElement>()
+
+
+onMounted( () => {
+    const ctx = gsap.context( () => {
+        const tl = gsap.timeline( {
+            scrollTrigger: {
+                trigger       : componentRef.value,
+                start         : "top 100%",
+                toggleActions : "play none none none",
+            },
+        } )
+
+        if ( itemsRef.value?.length ) {
+            tl.to( itemsRef.value, {
+                ease       : "power2.out",
+                translateY : 0,
+                duration   : 1,
+                opacity    : 1,
+                delay      : 0.2,
+                stagger    : 0.2,
+            } )
+        }
+
+    }, componentRef )
+
+    onBeforeUnmount( () => ctx.revert() )
+} )
+
+/**
+ * End Transition
+ */
 
 const selectedImage = ref<string>( "" )
 const isOpenPreview = ref<boolean>( false )
 const isOpen = ref<boolean>( false )
-const componentRef = ref<HTMLElement>()
 
 const onClickImage = ( val: string ) => {
     isOpenPreview.value = true
