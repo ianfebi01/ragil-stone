@@ -5,7 +5,8 @@
         <div class="flex flex-col max-w-2xl">
           <div class="flex flex-col justify-center grow">
             <h1 class="mt-0 text-3xl md:text-5xl">Percantik Hunian Anda dengan Batu Alam Berkualitas</h1>
-            <h2 class="text-xl md:text-2xl font-normal mt-4">Ragil Stone menyediakan jasa pemasangan profesional dan bahan batu
+            <h2 class="text-xl md:text-2xl font-normal mt-4">Ragil Stone menyediakan jasa pemasangan profesional dan
+              bahan batu
               alam terbaik langsung dari Gunungkidul.</h2>
             <div class="flex items-center gap-6 md:gap-8 mt-8 md:mt-16 flex-wrap">
               <NuxtLink :to="`https://wa.me/6281999980596`" class="button button-primary">
@@ -136,6 +137,38 @@
         </div>
       </div>
       <PreviewImage v-model="isOpenPreview" :selected-image="selectedImage" @close-modal="isOpenPreview = false" />
+    </section>
+    <section>
+      <div class="main-container p-20">
+        <h2 class="h1 mt-0 text-center mb-12">Hubungi Kami</h2>
+        <div class="flex flex-col-reverse md:flex-row gap-8 md:gap-0">
+          <div class="md:basis-1/2 flex items-center">
+            <ul class="list-none m-0">
+              <li class="flex items-center gap-4">
+                <Icon name="fa7-solid:location-dot" /> Alamat: Semanu, Gunungkidul, Yogyakarta
+              </li>
+              <li class="flex items-center gap-4">
+                <Icon name="fa7-solid:phone" />Telepon/WA: <b>081999980596</b>
+              </li>
+              <li class="flex items-center gap-4">
+                <Icon name="fa7-solid:envelope" /> Email: <a
+                  href="mailto:ardynugroho3502@gmail.com">Ardynugroho3502@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+          <div class="md:basis-1/2 flex flex-col justify-center">
+            <div class="overflow-hidden aspect-square rounded-2xl max-md:max-w-80 relative p-8 mx-auto">
+              <img
+                src="@/assets/images/calling-88.svg"
+                alt="Calling"
+                width="500"
+                height="500"
+                loading="eager"
+                class="object-contain w-full h-full" />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </template>
