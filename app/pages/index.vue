@@ -2,40 +2,7 @@
   <div>
     <HeroesMainHeroes />
     <SectionsQuote/>
-    <section>
-      <div class="main-container p-20">
-        <h2 class="h1 mt-0 text-center mb-12">Tentang Kami</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div
-            class="bg-gradient-to-t from-gray-100 to-white hover:shadow-2xl transition-default p-8 text-center rounded-xl">
-            <div class="overflow-hidden p-6">
-              <img
-                src="@/assets/images/calendar-31.svg"
-                alt="calendar"
-                class="w-full h-full object-contain object-center" />
-            </div>
-            <p>Berpengalaman dalam pemasangan batu alam sejak bertahun-tahun</p>
-          </div>
-          <div
-            class="bg-gradient-to-t from-gray-100 to-white hover:shadow-2xl transition-default p-8 text-center rounded-xl">
-            <div class="overflow-hidden p-6">
-              <img src="@/assets/images/map-65.svg" alt="map" class="w-full h-full object-contain object-center" />
-            </div>
-            <p>Lokasi strategis di Semanu, Gunungkidul (sentra batu alam Yogyakarta)</p>
-          </div>
-          <div
-            class="bg-gradient-to-t from-gray-100 to-white hover:shadow-2xl transition-default p-8 text-center rounded-xl">
-            <div class="overflow-hidden p-6">
-              <img
-                src="@/assets/images/real-estate-agent-8.svg"
-                alt="real-estate-agent"
-                class="w-full h-full object-contain object-center" />
-            </div>
-            <p>Menyediakan berbagai jenis batu alam dengan kualitas terjamin</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <SectionsAboutUs/>
     <SectionsCatalog />
     <section class="bg-gray-100">
       <div class="main-container p-20">
