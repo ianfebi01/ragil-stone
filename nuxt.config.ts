@@ -14,6 +14,7 @@ export default defineNuxtConfig( {
     "@nuxtjs/sitemap",
     "@nuxtjs/robots",
     "@nuxt/icon",
+    "@nuxt/image",
   ],
   eslint: {
     checker: true,
@@ -34,5 +35,10 @@ export default defineNuxtConfig( {
     url       : process.env.NUXT_SITE_URL,
     name      : process.env.NUXT_SITE_NAME,
     indexable : process.env.NODE_ENV === "production",
+  },
+  router: {
+    options: {
+      scrollBehaviorType: "smooth",
+    },
   },
 } )
