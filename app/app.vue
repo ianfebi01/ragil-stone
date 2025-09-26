@@ -1,28 +1,13 @@
 <template>
   <div class="flex flex-col relative min-h-screen">
     <div class="sticky top-0 left-0 z-40 print:hidden bg-white shadow-sm">
-      <div class="main-container flex items-center gap-8 h-16">
-        <NuxtLink to="/" class="no-underline text-black font-extralight">
-          Beranda
-        </NuxtLink>
-        <NuxtLink to="/#katalog" class="no-underline text-black font-extralight" @click="scrollToSection('katalog')">
-          Katalog
-        </NuxtLink>
-        <div class="grow"></div>
-        <NuxtLink :to="`https://wa.me/6281999980596`" class="button button-primary">
-          <Icon name="fa7-solid:paper-plane" />
-          Kontak
-        </NuxtLink>
-      </div>
+      <Header/>
     </div>
     <NuxtPage class="grow"/>
-    <footer class="main-container py-8 shadow-sm text-center md:text-left">
-      © 2025 Ragil Stone | Batu Alam & Pemasangan – Gunungkidul, Yogyakarta
-    </footer>
+    <Footer/>
   </div>
 </template>
 <script lang="ts" setup>
-import scrollToSection from "~~/shared/utils/scrollToSection"
 const config = useRuntimeConfig()
 const siteName = config.public.siteName
 const title = siteName || "Ragil Stone | Jasa Pemasangan Batu Alam"
