@@ -54,9 +54,10 @@ const containerRef = ref<HTMLElement | null>( null )
 const imageRef = ref<( HTMLElement | null )>( null )
 const textRef = ref<( HTMLElement | null )>( null )
 const headingRef = ref<HTMLElement | null>( null )
+let ctx: gsap.Context | null = null
 
 onMounted( () => {
-    const ctx = gsap.context( () => {
+    ctx = gsap.context( () => {
         const tl = gsap.timeline( {
             scrollTrigger: {
                 trigger       : containerRef.value,
@@ -94,9 +95,12 @@ onMounted( () => {
         }
 
 
-    }, containerRef )
+    }, ( containerRef.value as HTMLElement ) )
 
-    onBeforeUnmount( () => ctx.revert() )
+
 } )
 
+onBeforeUnmount( () => {
+    if ( ctx ) ctx.revert()
+} )
 </script>

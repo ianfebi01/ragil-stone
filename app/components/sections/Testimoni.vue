@@ -4,7 +4,10 @@
       <h2 class="h1 mt-0 text-center mb-12">Testimoni Pelanggan</h2>
       <div
         class="bg-gradient-to-t from-gray-100 to-white hover:shadow-2xl transition-default p-8 text-center rounded-xl relative">
-        <blockquote ref="textRef" cite="https://www.example.com/artikel" class="text-2xl text-center mb-8 max-w-2xl mx-auto opacity-0 scale-75">
+        <blockquote
+          ref="textRef"
+          cite="https://www.example.com/artikel"
+          class="text-2xl text-center mb-8 max-w-2xl mx-auto opacity-0 scale-75">
           <Icon name="fa7-solid:quote-left" />
           Hasil pemasangan sangat rapi, rumah jadi terlihat lebih alami dan elegan.
           <Icon name="fa7-solid:quote-right" />
@@ -34,10 +37,10 @@ gsap.registerPlugin( ScrollTrigger )
 
 const containerRef = ref<HTMLElement | null>( null )
 const textRef = ref<( HTMLElement | null )>( null )
-
+let ctx: gsap.Context | null = null
 
 onMounted( () => {
-    const ctx = gsap.context( () => {
+    ctx = gsap.context( () => {
         const tl = gsap.timeline( {
             scrollTrigger: {
                 trigger       : containerRef.value,
@@ -56,8 +59,10 @@ onMounted( () => {
             } )
         }
 
-    }, containerRef )
+    }, ( containerRef.value as HTMLElement ) )
+} )
 
-    onBeforeUnmount( () => ctx.revert() )
+onBeforeUnmount( () => {
+    if ( ctx ) ctx.revert()
 } )
 </script>

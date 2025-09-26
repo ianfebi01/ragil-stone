@@ -18,7 +18,9 @@
           </ul>
         </div>
         <div class="md:basis-1/2 flex flex-col justify-center">
-          <div ref="imageRef" class="overflow-hidden aspect-square rounded-2xl max-md:max-w-80 relative p-8 mx-auto opacity-0 translate-y-8">
+          <div
+            ref="imageRef"
+            class="overflow-hidden aspect-square rounded-2xl max-md:max-w-80 relative p-8 mx-auto opacity-0 translate-y-8">
             <img
               src="@/assets/images/calling-88.svg"
               alt="Calling"
@@ -46,9 +48,10 @@ gsap.registerPlugin( TextPlugin )
 const containerRef = ref<HTMLElement | null>( null )
 const imageRef = ref<( HTMLElement | null )>( null )
 const textRef = ref<( HTMLElement | null )>( null )
+let ctx: gsap.Context | null = null
 
 onMounted( () => {
-    const ctx = gsap.context( () => {
+    ctx = gsap.context( () => {
         const tl = gsap.timeline( {
             scrollTrigger: {
                 trigger       : containerRef.value,
@@ -78,9 +81,13 @@ onMounted( () => {
             }, "<" )
         }
 
-    }, containerRef )
+    }, ( containerRef.value as HTMLElement ) )
 
-    onBeforeUnmount( () => ctx.revert() )
+    
+} )
+
+onBeforeUnmount( () => {
+    if ( ctx ) ctx.revert()
 } )
 
 </script>

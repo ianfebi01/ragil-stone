@@ -76,10 +76,11 @@ gsap.registerPlugin( ScrollTrigger )
 
 const itemsRef = ref<HTMLDivElement[] | null[]>( [] )
 const componentRef = ref<HTMLElement>()
+let ctx: gsap.Context | null = null
 
 
 onMounted( () => {
-    const ctx = gsap.context( () => {
+    ctx = gsap.context( () => {
         const tl = gsap.timeline( {
             scrollTrigger: {
                 trigger       : componentRef.value,
@@ -99,9 +100,12 @@ onMounted( () => {
             } )
         }
 
-    }, componentRef )
+    }, ( componentRef.value as HTMLElement ) )
+} )
 
-    onBeforeUnmount( () => ctx.revert() )
+
+onBeforeUnmount( () => {
+    if ( ctx ) ctx.revert()
 } )
 
 /**

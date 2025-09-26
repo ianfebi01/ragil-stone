@@ -46,17 +46,19 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from "vue"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin( ScrollTrigger )
 
 const containerRef = ref<HTMLElement | null>( null )
-const itemsRef = ref<HTMLDivElement[] | null[]>( [] )
-
+const itemsRef = ref<HTMLDivElement[]>( [] )
+let ctx: gsap.Context | null = null
 
 onMounted( () => {
-    const ctx = gsap.context( () => {
+
+    ctx = gsap.context( () => {
         const tl = gsap.timeline( {
             scrollTrigger: {
                 trigger       : containerRef.value,
@@ -67,17 +69,18 @@ onMounted( () => {
 
         if ( itemsRef.value?.length ) {
             tl.to( itemsRef.value, {
-                ease       : "power2.out",
-                translateY : 0,
-                duration   : 1,
-                opacity    : 1,
-                delay      : 0.2,
-                stagger    : 0.2,
+                ease     : "power2.out",
+                y        : 0, // GSAP shorthand instead of translateY
+                duration : 1,
+                opacity  : 1,
+                delay    : 0.2,
+                stagger  : 0.2,
             } )
         }
+    }, ( containerRef.value as HTMLElement ) )
+} )
 
-    }, containerRef )
-
-    onBeforeUnmount( () => ctx.revert() )
+onBeforeUnmount( () => {
+    if ( ctx ) ctx.revert()
 } )
 </script>
