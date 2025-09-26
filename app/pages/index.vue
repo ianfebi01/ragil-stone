@@ -36,28 +36,7 @@
         </div>
       </div>
     </section>
-    <section>
-      <div class="main-container p-20">
-        <h2 class="h1 mt-0 text-center mb-12">Testimoni Pelanggan</h2>
-        <div
-          class="bg-gradient-to-t from-gray-100 to-white hover:shadow-2xl transition-default p-8 text-center rounded-xl relative">
-          <blockquote cite="https://www.example.com/artikel" class="text-2xl text-center mb-8 max-w-2xl mx-auto">
-            <Icon name="fa7-solid:quote-left" />
-            Hasil pemasangan sangat rapi, rumah jadi terlihat lebih alami dan elegan.
-            <Icon name="fa7-solid:quote-right" />
-          </blockquote>
-          <div class="flex items-center gap-2 text-yellow-300 justify-center mb-8">
-            <template v-for="item in 5" :key="item">
-              <Icon name="fa7-solid:star" />
-            </template>
-          </div>
-          <div
-            class="overflow-hidden size-20 aspect-square rounded-full absolute bottom-0 inset-x-0 mx-auto translate-y-1/2 border-4 border-gray-100">
-            <img src="@/assets/images/ianfebi.webp" alt="calendar" class="w-full h-full object-contain object-center" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <SectionsTestimoni/>
     <section class="bg-gray-100">
       <div class="main-container p-20">
         <h2 class="h1 mt-0 text-center mb-12">Hubungi Kami</h2>
