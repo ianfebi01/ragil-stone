@@ -7,7 +7,7 @@ export default defineNuxtConfig( {
       siteName: process.env.NUXT_SITE_NAME,
       siteUrl:
         process.env.VERCEL_ENV === "production"
-          ? `https://${process.env.NUXT_SITE_URL}` // custom domain in prod
+          ? `${process.env.NUXT_SITE_URL}` // custom domain in prod
           : `https://${process.env.VERCEL_URL}`,
     },
   },
