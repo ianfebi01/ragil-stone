@@ -12,8 +12,7 @@
 
 <script lang="ts" setup>
 const config = useRuntimeConfig()
-const siteName = config.public.siteName
-const title = siteName || "Ragil Stone | Jasa Pemasangan Batu Alam"
+const title = "Ragil Stone | Jasa Pemasangan Batu Alam"
 const description = "Ragil Stone melayani pemasangan dinding, taman, kolam, dan lantai batu alam dengan finishing rapi, harga transparan, dan garansi pekerjaan. Berlokasi di Semanu, Gunungkidul, Yogyakarta."
 useHead( {
   title : title,
@@ -43,7 +42,7 @@ useHead( {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:image", content: "/images/batu-alam/batu-alam-15.webp" },
-    { property: "og:url", content: `${config.public.siteUrl}/}` },
+    { property: "og:url", content: `${config.public.siteUrl}/` },
     { property: "og:type", content: "website" },
 
     // Twitter
