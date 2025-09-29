@@ -66,7 +66,7 @@ useHead( {
         "@context" : "https://schema.org",
         "@type"    : "LocalBusiness",
         name       : "Ragil Stone",
-        image      : "/images/batu-alam/batu-alam-15.webp",
+        image      : `${config.public.siteUrl}/images/batu-alam/batu-alam-15.webp`,
         "@id"      : config.public.siteUrl,
         url        : config.public.siteUrl,
         telephone  : "+6281999980596",
