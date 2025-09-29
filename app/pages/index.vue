@@ -41,14 +41,14 @@ useHead( {
     // Open Graph
     { property: "og:title", content: title },
     { property: "og:description", content: description },
-    { property: "og:image", content: "/images/batu-alam/batu-alam-15.webp" },
+    { property: "og:image", content: `${config.public.siteUrl}/images/batu-alam/batu-alam-15.webp` },
     { property: "og:url", content: `${config.public.siteUrl}/` },
     { property: "og:type", content: "website" },
 
     // Twitter
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
-    { name: "twitter:image", content: "/images/batu-alam/batu-alam-15.webp" },
+    { name: "twitter:image", content: `${config.public.siteUrl}/images/batu-alam/batu-alam-15.webp` },
     { name: "twitter:card", content: "summary_large_image" },
 
     // Robots
